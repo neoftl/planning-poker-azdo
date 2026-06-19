@@ -1,0 +1,268 @@
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  font-size: 13px;
+  /* Azure DevOps injects CSS variables for theming; fall back to light values */
+  color: var(--text-primary-color, #323130);
+  background: var(--background-color, #ffffff);
+}
+
+/* ── Loading / Error ──────────────────────────────────────────────────────── */
+
+.pp-loading {
+  padding: 12px 16px;
+  color: var(--text-secondary-color, #605e5c);
+  font-style: italic;
+}
+
+.pp-error {
+  padding: 12px 16px;
+  color: #a4262c;
+  font-size: 12px;
+}
+
+/* ── Container ────────────────────────────────────────────────────────────── */
+
+.pp-container {
+  padding: 10px 14px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ── Header ───────────────────────────────────────────────────────────────── */
+
+.pp-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pp-title {
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--text-primary-color, #323130);
+}
+
+.pp-actions {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+/* ── Buttons ──────────────────────────────────────────────────────────────── */
+
+.pp-btn {
+  padding: 4px 10px;
+  border-radius: 2px;
+  font-size: 12px;
+  font-family: inherit;
+  cursor: pointer;
+  border: 1px solid transparent;
+  line-height: 1.4;
+  transition: background 0.1s, border-color 0.1s;
+}
+
+.pp-btn--primary {
+  background-color: var(--communication-background, #0078d4);
+  color: #ffffff;
+  border-color: var(--communication-background, #0078d4);
+}
+
+.pp-btn--primary:hover {
+  background-color: #106ebe;
+  border-color: #106ebe;
+}
+
+.pp-btn--ghost {
+  background: transparent;
+  color: var(--text-primary-color, #323130);
+  border-color: var(--palette-neutral-20, #d2d0ce);
+}
+
+.pp-btn--ghost:hover {
+  background: var(--palette-neutral-4, #f3f2f1);
+}
+
+.pp-btn--icon {
+  background: transparent;
+  border-color: transparent;
+  color: var(--text-secondary-color, #605e5c);
+  padding: 4px 6px;
+  font-size: 14px;
+}
+
+.pp-btn--icon:hover {
+  color: var(--text-primary-color, #323130);
+  background: var(--palette-neutral-4, #f3f2f1);
+}
+
+/* ── Card grid ────────────────────────────────────────────────────────────── */
+
+.pp-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.pp-card {
+  width: 42px;
+  height: 56px;
+  border-radius: 5px;
+  border: 2px solid var(--palette-neutral-20, #d2d0ce);
+  background: var(--background-color, #ffffff);
+  font-size: 15px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  color: var(--text-primary-color, #323130);
+  transition: transform 0.1s, border-color 0.1s, box-shadow 0.1s, background 0.1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pp-card:hover {
+  border-color: var(--communication-background, #0078d4);
+  color: var(--communication-background, #0078d4);
+  transform: translateY(-2px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+.pp-card--selected {
+  background-color: var(--communication-background, #0078d4);
+  border-color: var(--communication-background, #0078d4);
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 120, 212, 0.35);
+}
+
+.pp-card--selected:hover {
+  background-color: #106ebe;
+  border-color: #106ebe;
+  color: #ffffff;
+}
+
+/* ── Voter chips (voting state) ───────────────────────────────────────────── */
+
+.pp-voters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  align-items: center;
+  min-height: 24px;
+}
+
+.pp-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 9px 2px 4px;
+  border-radius: 10px;
+  font-size: 12px;
+  background: var(--palette-neutral-10, #e1dfdd);
+  color: var(--text-secondary-color, #605e5c);
+  border: 1px solid var(--palette-neutral-20, #d2d0ce);
+}
+
+.pp-chip--me {
+  background: var(--communication-tint-10, #cce4f6);
+  color: var(--communication-foreground, #0078d4);
+  border-color: var(--communication-tint-20, #a0c8e8);
+  font-weight: 600;
+}
+
+.pp-hint {
+  font-size: 12px;
+  color: var(--text-disabled-color, #a19f9d);
+  font-style: italic;
+}
+
+/* ── Avatars ──────────────────────────────────────────────────────────────── */
+
+.pp-avatar {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.pp-avatar--initials {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  font-style: normal;
+  background: var(--palette-neutral-20, #d2d0ce);
+  color: var(--text-primary-color, #323130);
+}
+
+/* ── Results ──────────────────────────────────────────────────────────────── */
+
+.pp-results {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pp-result-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 8px;
+  border-radius: 3px;
+  background: var(--palette-neutral-4, #f3f2f1);
+}
+
+.pp-result-names {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  flex: 1;
+}
+
+.pp-result-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-primary-color, #323130);
+  background: var(--background-color, #ffffff);
+  border: 1px solid var(--palette-neutral-20, #d2d0ce);
+  border-radius: 10px;
+  padding: 2px 10px 2px 4px;
+  white-space: nowrap;
+}
+
+.pp-result-name--me {
+  color: var(--communication-foreground, #0078d4);
+  font-weight: 600;
+  background: var(--communication-tint-10, #cce4f6);
+  border-color: var(--communication-tint-20, #a0c8e8);
+}
+
+.pp-result-card {
+  width: 34px;
+  height: 42px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  background: var(--background-color, #ffffff);
+  border: 2px solid var(--communication-background, #0078d4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--communication-background, #0078d4);
+}

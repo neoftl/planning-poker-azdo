@@ -1,0 +1,26 @@
+{
+  "name": "planning-poker",
+  "version": "1.0.0",
+  "description": "Planning Poker extension for Azure DevOps",
+  "scripts": {
+    "build": "webpack --mode production",
+    "build:dev": "webpack --mode development --watch",
+    "package": "npm run build && tfx extension create --manifest-globs vss-extension.json --output-path releases",
+    "publish": "tfx extension publish --manifest-globs vss-extension.json"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "css-loader": "^6.8.0",
+    "html-webpack-plugin": "^5.5.0",
+    "style-loader": "^3.3.0",
+    "tfx-cli": "^0.23.1",
+    "ts-loader": "^9.5.0",
+    "typescript": "^5.3.0",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.0"
+  },
+  "dependencies": {
+    "azure-devops-extension-api": "^4.0.0",
+    "azure-devops-extension-sdk": "^4.0.0"
+  }
+}

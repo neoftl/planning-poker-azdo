@@ -1,0 +1,391 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  font-size: 13px;
+  color: var(--text-primary-color, #323130);
+  background: var(--background-color, #ffffff);
+}
+
+.cfg-loading {
+  padding: 16px;
+  color: var(--text-secondary-color, #605e5c);
+  font-style: italic;
+}
+
+.cfg-error {
+  padding: 16px;
+  color: #a4262c;
+}
+
+/* ── Container ────────────────────────────────────────────────────────────── */
+
+.cfg-container {
+  max-width: 680px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cfg-heading {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary-color, #323130);
+}
+
+.cfg-description {
+  font-size: 13px;
+  color: var(--text-secondary-color, #605e5c);
+  line-height: 1.5;
+}
+
+/* ── Chip list ────────────────────────────────────────────────────────────── */
+
+.cfg-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  min-height: 36px;
+  padding: 8px;
+  border-radius: 3px;
+  border: 1px solid var(--palette-neutral-20, #d2d0ce);
+  background: var(--palette-neutral-2, #faf9f8);
+}
+
+.cfg-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 6px 3px 6px;
+  border-radius: 12px;
+  background: var(--palette-neutral-8, #edebe9);
+  border: 1px solid var(--palette-neutral-20, #d2d0ce);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary-color, #323130);
+  cursor: default;
+  user-select: none;
+}
+
+.cfg-chip--dragging {
+  opacity: 0.4;
+}
+
+.cfg-chip--over {
+  border-color: var(--communication-background, #0078d4);
+  background: #cce4f6;
+}
+
+.cfg-chip-handle {
+  color: var(--text-disabled-color, #a19f9d);
+  font-size: 14px;
+  cursor: grab;
+  line-height: 1;
+}
+
+.cfg-chip-handle:active {
+  cursor: grabbing;
+}
+
+.cfg-chip-label {
+  min-width: 12px;
+  text-align: center;
+}
+
+.cfg-chip-remove {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary-color, #605e5c);
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: background 0.1s, color 0.1s;
+}
+
+.cfg-chip-remove:hover {
+  background: #c8382c;
+  color: #ffffff;
+}
+
+/* ── Add row ──────────────────────────────────────────────────────────────── */
+
+.cfg-add-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.cfg-input {
+  width: 120px;
+  padding: 5px 8px;
+  font-size: 13px;
+  font-family: inherit;
+  border-radius: 2px;
+  border: 1px solid var(--palette-neutral-20, #d2d0ce);
+  background: var(--background-color, #ffffff);
+  color: var(--text-primary-color, #323130);
+  outline: none;
+}
+
+.cfg-input:focus {
+  border-color: var(--communication-background, #0078d4);
+  box-shadow: 0 0 0 1px var(--communication-background, #0078d4);
+}
+
+/* ── Buttons ──────────────────────────────────────────────────────────────── */
+
+.cfg-btn {
+  padding: 5px 12px;
+  border-radius: 2px;
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+  border: 1px solid transparent;
+  line-height: 1.4;
+  transition: background 0.1s, border-color 0.1s;
+}
+
+.cfg-btn--primary {
+  background-color: var(--communication-background, #0078d4);
+  color: #ffffff;
+  border-color: var(--communication-background, #0078d4);
+}
+
+.cfg-btn--primary:hover {
+  background-color: #106ebe;
+  border-color: #106ebe;
+}
+
+.cfg-btn--ghost {
+  background: transparent;
+  color: var(--text-primary-color, #323130);
+  border-color: var(--palette-neutral-20, #d2d0ce);
+}
+
+.cfg-btn--ghost:hover:not(:disabled) {
+  background: var(--palette-neutral-4, #f3f2f1);
+}
+
+.cfg-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ── Footer ───────────────────────────────────────────────────────────────── */
+
+.cfg-footer {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.cfg-status {
+  font-size: 12px;
+  color: #107c10;
+}
+
+.cfg-status--error {
+  color: #a4262c;
+}
+
+/* ── Sections ───────────────────────────────────────────────────── */
+
+.cfg-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cfg-section + .cfg-section {
+  padding-top: 16px;
+  border-top: 1px solid var(--palette-neutral-10, #e1dfdd);
+}
+
+/* ── Behaviour fields ──────────────────────────────────────────── */
+
+.cfg-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cfg-field-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary-color, #323130);
+}
+
+.cfg-toggle-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-primary-color, #323130);
+  cursor: pointer;
+  user-select: none;
+}
+
+.cfg-toggle-label input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: var(--communication-background, #0078d4);
+}
+
+.cfg-select {
+  width: 160px;
+  padding: 5px 8px;
+  font-size: 13px;
+  font-family: inherit;
+  border-radius: 2px;
+  border: 1px solid var(--palette-neutral-20, #d2d0ce);
+  background: var(--background-color, #ffffff);
+  color: var(--text-primary-color, #323130);
+  cursor: pointer;
+}
+
+.cfg-select:focus {
+  border-color: var(--communication-background, #0078d4);
+  box-shadow: 0 0 0 1px var(--communication-background, #0078d4);
+  outline: none;
+}
+
+/* ── Hint text ───────────────────────────────────────────────────── */
+
+.cfg-hint {
+  font-size: 12px;
+  color: var(--text-secondary-color, #605e5c);
+  font-style: italic;
+  padding: 4px 2px;
+}
+
+/* ── Small button / input variants ───────────────────────────────────────── */
+
+.cfg-btn--sm {
+  padding: 3px 8px;
+  font-size: 12px;
+}
+
+.cfg-input--sm {
+  width: 80px;
+  padding: 3px 6px;
+  font-size: 12px;
+}
+
+/* ── Work Item Type table ────────────────────────────────────────── */
+
+.cfg-wit-table {
+  display: flex;
+  flex-direction: column;
+}
+
+.cfg-wit-row {
+  display: grid;
+  grid-template-columns: 24px 180px 1fr;
+  align-items: start;
+  gap: 4px 10px;
+  padding: 8px 4px;
+  border-bottom: 1px solid var(--palette-neutral-8, #edebe9);
+}
+
+.cfg-wit-row:last-child {
+  border-bottom: none;
+}
+
+.cfg-wit-row--disabled {
+  opacity: 0.55;
+}
+
+.cfg-wit-toggle-label {
+  display: flex;
+  align-items: center;
+  padding-top: 3px;
+  cursor: pointer;
+}
+
+.cfg-wit-toggle-label input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: var(--communication-background, #0078d4);
+}
+
+.cfg-wit-type {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-primary-color, #323130);
+  padding-top: 1px;
+}
+
+.cfg-wit-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.cfg-wit-icon-img {
+  width: 14px;
+  height: 14px;
+  filter: brightness(0) invert(1);
+}
+
+.cfg-wit-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cfg-wit-cards-cell {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  min-height: 28px;
+}
+
+.cfg-wit-cards-preview {
+  font-size: 12px;
+  color: var(--text-secondary-color, #605e5c);
+  font-family: "Consolas", "Courier New", monospace;
+  letter-spacing: 0.03em;
+}
+
+.cfg-wit-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  width: 100%;
+  padding: 6px;
+  border-radius: 3px;
+  border: 1px solid var(--palette-neutral-20, #d2d0ce);
+  background: var(--palette-neutral-2, #faf9f8);
+  min-height: 32px;
+}
+
+.cfg-wit-add-row {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  width: 100%;
+}

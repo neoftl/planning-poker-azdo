@@ -1,0 +1,80 @@
+{
+  "manifestVersion": 1,
+  "id": "planning-poker",
+  "publisher": "neofintechlab",
+  "version": "3.0.1",
+  "name": "Planning Poker",
+  "description": "Zero-infrastructure Planning Poker estimation directly on Azure DevOps work items.",
+  "public": true,
+  "targets": [
+    { "id": "Microsoft.VisualStudio.Services" }
+  ],
+  "categories": ["Azure Boards"],
+  "icons": {
+    "default": "images/poker-icon.png"
+  },
+  "tags": [
+    "agile",
+    "estimation",
+    "estimating",
+    "fibonacci",
+    "free",
+    "planning",
+    "planning poker",
+    "poker",
+    "refinement",
+    "scrum"
+  ],
+  "files": [
+    { "path": "dist", "addressable": true },
+    { "path": "images", "addressable": true }
+  ],
+  "content": {
+    "details": {
+      "path": "overview.md"
+    },
+    "license": {
+      "path": "LICENSE"
+    }
+  },
+  "links": {
+    "support": {
+      "uri": "https://github.com/neoftl/planning-poker-azdo/issues"
+    },
+    "privacypolicy": {
+      "uri": "https://github.com/neoftl/planning-poker-azdo/blob/main/privacy.md"
+    }
+  },
+  "branding": {
+    "color": "#0078d4",
+    "theme": "dark"
+  },
+  "contributions": [
+    {
+      "id": "planning-poker-group",
+      "type": "ms.vss-work-web.work-item-form-group",
+      "description": "Planning Poker voting panel on work items",
+      "targets": ["ms.vss-work-web.work-item-form"],
+      "properties": {
+        "name": "Planning Poker",
+        "uri": "dist/poker.html",
+        "height": 200
+      }
+    },
+    {
+      "id": "planning-poker-settings-hub",
+      "type": "ms.vss-web.hub",
+      "description": "Configure Planning Poker card values",
+      "targets": ["ms.vss-web.project-admin-hub-group"],
+      "properties": {
+        "name": "Planning Poker",
+        "uri": "dist/config.html",
+        "icon": "images/poker-icon.png"
+      }
+    }
+  ],
+  "scopes": [
+    "vso.work",
+    "vso.work_write"
+  ]
+}
